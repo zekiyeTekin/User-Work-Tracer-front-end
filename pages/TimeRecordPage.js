@@ -42,18 +42,33 @@
 
     // BURADA  TÜM VERİLERİ PAGİNATİON'a GÖRE UYARLAYIP SAYFA ÜKLENDİĞİNDE LİSTELİYORUM.
    
+
+
    
     
-    // const link = document.getElementsByClassName("link");
-    // let currentValue = 1;
+    const link = document.getElementsByClassName("link");
+    let currentValue = 1;
     const pageSize = 2;
+    let pageNumber = 1;
     const recordList = document.getElementById("recordTable");
+   
 
     async function fetchRecordData(pageNumber) {
        
         try {
+
+
             const url = `http://localhost:8081/record/getRecords?page=${pageNumber}&size=${pageSize}`;
-            const response = await fetch(url);
+             const response = await fetch(url
+                //, {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type' : 'application/json'
+            //     },
+            //     body: JSON.stringify(filterData)
+            // }
+            
+            );
             
             if (!response.ok) {
                 throw new Error('not ok');
@@ -61,6 +76,8 @@
             
             const data = await response.json();
             console.log(data);
+
+            recordList.innerHTML = "";
 
             
            
@@ -88,63 +105,26 @@
         }
     }
     
-    recordList.addEventListener("click", function(event) {
-        if (event.target.tagName === "A") {
-            const pageNumber = parseInt(event.target.dataset.page);
+
+    document.getElementById("prev").addEventListener("click", function() {
+        if (pageNumber > 1) {
+            pageNumber--;
+            document.getElementById("pageNumber").value = pageNumber;
             fetchRecordData(pageNumber);
         }
     });
     
-    document.addEventListener("DOMContentLoaded", function() {
-        fetchRecordData(currentPage);
+    document.getElementById("next").addEventListener("click", function() {
+        pageNumber++;
+        document.getElementById("pageNumber").value = pageNumber;
+        fetchRecordData(pageNumber);
     });
-
-//     // Butonlara tıklanma olayını dinle
-//     const pagination = document.querySelector(".pagination");
-//     pagination.addEventListener("click", function(event) {
-//     if (event.target.tagName === "LI") {
-//         const pageNumber = parseInt(event.target.dataset.page);
-//         currentPage = pageNumber; 
-//         fetchRecordData(currentPage);
-//     }
-// });
-
-
     
+    document.getElementById("pageNumber").addEventListener("change", function() {
+        pageNumber = parseInt(this.value);
+        fetchRecordData(pageNumber);
+    });
     
-
-         const link = document.getElementsByClassName("link");
-         let currentValue = 1;
-        
-
-        function activeLink(event){
-         
-                for (l of link) {
-                    l.classList.remove("active");
-                } 
-            event.target.classList.add("active");
-            currentValue = event.target.value;
-        }
-    
-        function btnPrev(){
-            if(currentValue > 1){
-                currentValue--;
-                for(l of link){
-                    l.classList.remove("active");
-                }
-                link[currentValue-1].classList.add("active");
-            }
-        }
-
-        function btnNext(){
-            if (currentValue < 6) {
-                for (let l of link) {
-                    l.classList.remove("active");
-                }
-                currentValue++;
-                link[currentValue-1].classList.add("active");
-            }
-        }
-        
-    
-
+    document.addEventListener("DOMContentLoaded", function() {
+        fetchRecordData(pageNumber);
+    });

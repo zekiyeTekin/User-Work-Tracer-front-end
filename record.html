@@ -86,16 +86,21 @@
                         </div>
                     </div> 
                     <div class="pagination">
-                        <button class="btn-prev" onclick="btnPrev()"> <img src="images/left-arrow.png"> prev</button>
+                        <button class="btn-prev" id="prev" onclick="btnPrev()"> 
+                             <img src="images/left-arrow.png"> 
+                             prev</button>
                         <ul id="btn-page-list">
-                            <li class="link active" value="1" onclick="activeLink(event)">1</li>
+                            <!-- <li class="link active" value="1" onclick="activeLink(event)">1</li>
                             <li class="link" value="2"  onclick="activeLink(event)">2</li>
                             <li class="link" value="3"  onclick="activeLink(event)">3</li>
                             <li class="link" value="4"  onclick="activeLink(event)">4</li>
                             <li class="link" value="5"  onclick="activeLink(event)">5</li>
-                            <li class="link" value="6"  onclick="activeLink(event)">6</li>
+                            <li class="link" value="6"  onclick="activeLink(event)">6</li> -->
+                            <input type="number" id="pageNumber" />
                         </ul>   
-                        <button class="btn-next" onclick="btnNext()"> <img src="images/left-arrow.png">  next</button>   
+                        <button class="btn-next" id="next" onclick="btnNext()">
+                              <img src="images/left-arrow.png">  
+                              next</button>   
                     </div>
                 </div>
             </section>
@@ -105,13 +110,6 @@
 
             <!-- footer start -->
             <section id="footer">
-                <!-- <div class="footer-logo text-center">
-                    <img src="images/y3.png" alt=""> </div>
-                <div class="social-links text-center">
-                    <i><img src="images/linkedin.png" alt=""></i>
-                    <i><img src="images/github.png" alt=""></i>
-                    <i><img src="images/medium.png" alt=""></i>
-                </div> -->
                 <div class="credits text-center">
                     Designed By <a href="#">Zekiye</a> &copy; User Work Tracer
                 </div>               

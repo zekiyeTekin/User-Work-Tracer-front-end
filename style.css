@@ -303,26 +303,6 @@ html ::-webkit-scrollbar{
     z-index: 999;
     
 }
-/* .footer-logo img{
-    width: 50px;
-    border-radius: 10px;
-    margin-top: 30px;
-    cursor: pointer;
-}
-.social-links i {
-    font-size: 17px;
-    margin-left: 10px;
-    margin-top: 30px;
-    padding: 10px;
-    background: #cfd1c4;
-    color: white;
-    border-radius: 10px;
-    cursor: pointer;
-}
-.social-links img{
-    width: 1.5rem;
-    cursor: pointer;
-} */
 .credits {
     color: white;
     margin-top: 20px;
@@ -703,45 +683,12 @@ thead th {
 /* pagination button start */
 
  .pagination{
-    /* padding: 10px;
-    text-align: right;
-    list-style: none; */
-
-    display: flex;
-    align-items: center;
-    background: #fff;
-    color: #383838;
-    padding: 10px 40px;
-    border-radius: 6px;
-
-
+    margin-top:100;
+    display:flex;
+    justify-content:center;
+    gap:2rem;
 }
-.pagination ul{
-    /* background-color: #cfd1c4;
-    padding: 10px;
-    display: inline-block;
-    margin: 0 10px;
-    cursor: pointer;
-    margin-bottom: 70px;
-    border-radius: 80%; */
-    margin: 8px 16px;
-}
-.pagination ul li{
-    display: inline-block;
-    margin: 0 10px;
-    background: #ccc;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    text-align: center;
-    font-size: 18px;
-    font-weight: 250;
-    line-height: 24px;
-    cursor: pointer;
-    background-position: 0 -45px;
-    transition:  background-position 0.5s; 
-}
-.pagination ul li.active{
+.pagination .active{
     color: #b2744c;
     background-image: linear-gradient(#282922, #656565);
     background-repeat: no-repeat;
@@ -782,8 +729,17 @@ thead th {
     width: 20px;
     margin-right: 10px;
     transform: rotate(180deg);
-}
-
-
+}  
+  
+  #page-number{
+    border:none;
+    text-align:center;
+    width:3rem;
+    border-radius:5px;
+  }
+  #page-number:focus{
+    outline:none;
+  }
+  
 
 /* pagination button end */
